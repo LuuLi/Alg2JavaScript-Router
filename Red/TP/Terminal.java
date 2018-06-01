@@ -2,7 +2,7 @@ package TP;
 
 import java.util.ArrayList;
 
-public class Terminal {
+public class Terminal extends Dispositivo {
 	private String dispositivo;
 	private String nombreSO;
 	private String versionSO;
@@ -29,10 +29,10 @@ public class Terminal {
 	public void ReciboPaquete(Paquete P) {
 		if (direcciones.contains(P.IPdest)){
 			if (P.tipo == "WHO") {
-				Terminal T = new Terminal(Dispositivo, NombreSO, VersionSO, interfaz, direcciones, defaultGateway);
+				Terminal T = new Terminal(dispositivo, nombreSO, versionSO, interfaz, direcciones, defaultGateway);
 				CrearPaquete("SendMessage", T);
 			} else if (P.tipo == "ICMPRequest") {
-					Terminal T = new Terminal(Dispositivo, NombreSO, VersionSO, interfaz, Direcciones, Defaultgateway);
+					Terminal T = new Terminal(dispositivo, nombreSO, versionSO, interfaz, direcciones, defaultGateway);
 					CrearPaquete("ICMPResponse", T);
 			} else if (P.tipo == "ICMPResponse") {
 					System.out.println("Recibido ICMP desde equipo_origen [timestamp]");
