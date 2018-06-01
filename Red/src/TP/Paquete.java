@@ -1,6 +1,7 @@
 package TP;
 
-public abstract class Paquete {
+public abstrac
+t class Paquete {
 	protected IP ipDest;
 	protected IP ipOrig;
 	protected int ttl;

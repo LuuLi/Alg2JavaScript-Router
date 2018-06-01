@@ -3,33 +3,33 @@ package TP;
 import java.util.ArrayList;
 
 public class Terminal {
-	private String Dispositivo;
-	private String NombreSO;
-	private String VersionSO;
+	private String dispositivo;
+	private String nombreSO;
+	private String versionSO;
 	private Hub interfaz;
-	private ArrayList<IP> Direcciones;
-	private IP Defaultgateway;
+	private ArrayList<IP> direcciones;
+	private IP defaultGateway;
 	
 	public Terminal(String Disp, String NSO, String VSO, Hub inter, ArrayList<IP> direc, IP DG){
-		Dispositivo = Disp;
-		NombreSO = NSO;
-		VersionSO = VSO;
+		dispositivo = Disp;
+		nombreSO = NSO;
+		versionSO = VSO;
 		interfaz = inter;
-		Direcciones = direc;
-		Defaultgateway = DG;
+		direcciones = direc;
+		defaultgateway = DG;
 	}
 	
 	public void EnvioPaquete(Paquete P) {
-		if (Direcciones.contains(P.IPdest)){
+		if (direcciones.contains(P.IPdest)){
 			ObtenerTerminal(IPdest); 
 		} else {
-			CrearPaqueteRuteo(P, Defaultgateway);
+			CrearPaqueteRuteo(P, defaultGateway);
 		}
 	}
 	public void ReciboPaquete(Paquete P) {
-		if (Direcciones.contains(P.IPdest)){
+		if (direcciones.contains(P.IPdest)){
 			if (P.tipo == "WHO") {
-				Terminal T = new Terminal(Dispositivo, NombreSO, VersionSO, interfaz, Direcciones, Defaultgateway);
+				Terminal T = new Terminal(Dispositivo, NombreSO, VersionSO, interfaz, direcciones, defaultGateway);
 				CrearPaquete("SendMessage", T);
 			} else if (P.tipo == "ICMPRequest") {
 					Terminal T = new Terminal(Dispositivo, NombreSO, VersionSO, interfaz, Direcciones, Defaultgateway);

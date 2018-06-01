@@ -7,15 +7,14 @@ public class PaqueteRuteo extends Paquete {
 		super(ipOrig , ipDest , ttl);
 		p = p1;
 	}
-	public Paquete getP() {
-		return p;
-	}
-
 	public void setP(Paquete p) {
 		this.p = p;
 	}
 	public Paquete getSubpaquete() {
 		return p;
+	}
+	public boolean esDeServicio(){
+		return false;
 	}
 
 	

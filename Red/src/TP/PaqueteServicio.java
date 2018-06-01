@@ -15,11 +15,8 @@ public class PaqueteServicio extends Paquete {
 		this.tipo = tipo;
 	}
 	public boolean esDeServicio(){
-		if(tipo == servicio) {
 		return true;
-	}else {
-		return false;
 	}
-	}
+	
 	
 }
